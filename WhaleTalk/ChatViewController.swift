@@ -11,8 +11,10 @@ import UIKit
 class ChatViewController: UIViewController {
     
     private let tableView = UITableView()
+    private let newMessageField = UITextView()
     
     private var messages = [Message]()
+    private var bottomConstraint: NSLayoutConstraint!
     private let cellIdentifier = "Cell"
 
     override func viewDidLoad() {
@@ -30,6 +32,38 @@ class ChatViewController: UIViewController {
             messages.append(m)
         }
         
+        let newMessageArea = UIView()
+        newMessageArea.backgroundColor = UIColor.lightGrayColor()
+        newMessageArea.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(newMessageArea)
+        
+        newMessageField.translatesAutoresizingMaskIntoConstraints = false
+        newMessageArea.addSubview(newMessageField)
+        newMessageField.scrollEnabled = false
+        
+        let sendButton = UIButton()
+        sendButton.translatesAutoresizingMaskIntoConstraints = false
+        newMessageArea.addSubview(sendButton)
+        
+        sendButton.setTitle("Send", forState: .Normal)
+        sendButton.setContentHuggingPriority(251, forAxis: .Horizontal)
+        
+        bottomConstraint = newMessageArea.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor)
+        bottomConstraint.active = true
+        
+        let messageAreaConstraints: [NSLayoutConstraint] = [
+            newMessageArea.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
+            newMessageArea.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
+            newMessageField.leadingAnchor.constraintEqualToAnchor(newMessageArea.leadingAnchor, constant: 10),
+            newMessageField.centerYAnchor.constraintEqualToAnchor(newMessageArea.centerYAnchor),
+            sendButton.trailingAnchor.constraintEqualToAnchor(newMessageArea.trailingAnchor,constant: -10),
+            newMessageField.trailingAnchor.constraintEqualToAnchor(sendButton.leadingAnchor,constant: -10),
+            sendButton.centerYAnchor.constraintEqualToAnchor(newMessageField.centerYAnchor),
+            newMessageArea.heightAnchor.constraintEqualToAnchor(newMessageField.heightAnchor,constant:20)
+        ]
+        
+        NSLayoutConstraint.activateConstraints(messageAreaConstraints)
+        
         tableView.registerClass(ChatCell.self, forCellReuseIdentifier: cellIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
@@ -41,18 +75,30 @@ class ChatViewController: UIViewController {
         
         let tableViewContraints: [NSLayoutConstraint] = [
             tableView.topAnchor.constraintEqualToAnchor(view.topAnchor),
-            tableView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor),
+            tableView.bottomAnchor.constraintEqualToAnchor(newMessageArea.topAnchor),
             tableView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
             tableView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor)
         ]
         
         NSLayoutConstraint.activateConstraints(tableViewContraints)
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func keyboardWillShow(notification:NSNotification) {
+        if let userInfo = notification.userInfo, frame = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue, animationDuration = userInfo[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue {
+            let newFrame = view.convertRect(frame, fromView: (UIApplication.sharedApplication().delegate?.window)!)
+            bottomConstraint.constant = newFrame.origin.y - CGRectGetHeight(view.frame)
+            UIView.animateWithDuration(animationDuration, animations: {
+                self.view.layoutIfNeeded()
+            })
+        }
     }
 
 
@@ -68,6 +114,7 @@ extension ChatViewController: UITableViewDataSource {
         let message = messages[indexPath.row]
         cell.messageLabel.text = message.text
         cell.incoming(message.incoming)
+        cell.separatorInset = UIEdgeInsetsMake(0, tableView.bounds.size.width, 0, 0)
         
         return cell
     }
