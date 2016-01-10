@@ -47,6 +47,7 @@ class ChatViewController: UIViewController {
         
         sendButton.setTitle("Send", forState: .Normal)
         sendButton.setContentHuggingPriority(251, forAxis: .Horizontal)
+        sendButton.setContentCompressionResistancePriority(751, forAxis: .Horizontal)
         
         bottomConstraint = newMessageArea.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor)
         bottomConstraint.active = true
@@ -84,6 +85,12 @@ class ChatViewController: UIViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: "handleSingletap:")
+        tapRecognizer.numberOfTapsRequired = 1
+        view.addGestureRecognizer(tapRecognizer)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -92,6 +99,19 @@ class ChatViewController: UIViewController {
     }
     
     func keyboardWillShow(notification:NSNotification) {
+        updateBottomConstraint(notification)
+    }
+    
+    func keyboardWillHide(notification:NSNotification) {
+        updateBottomConstraint(notification)
+    }
+    
+    func handleSingletap(recognizer: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    func updateBottomConstraint(notification:NSNotification) {
+        
         if let userInfo = notification.userInfo, frame = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue, animationDuration = userInfo[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue {
             let newFrame = view.convertRect(frame, fromView: (UIApplication.sharedApplication().delegate?.window)!)
             bottomConstraint.constant = newFrame.origin.y - CGRectGetHeight(view.frame)
