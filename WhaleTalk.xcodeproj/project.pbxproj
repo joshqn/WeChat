@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		91013ED91C44A1C20028F04C /* UITableView+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91013ED81C44A1C20028F04C /* UITableView+Scroll.swift */; };
 		91E96FC71C3F19AF00B97104 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E96FC61C3F19AF00B97104 /* AppDelegate.swift */; };
 		91E96FC91C3F19AF00B97104 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E96FC81C3F19AF00B97104 /* ChatViewController.swift */; };
 		91E96FCC1C3F19AF00B97104 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91E96FCA1C3F19AF00B97104 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		91013ED81C44A1C20028F04C /* UITableView+Scroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Scroll.swift"; sourceTree = "<group>"; };
 		91E96FC31C3F19AF00B97104 /* WhaleTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhaleTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91E96FC61C3F19AF00B97104 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91E96FC81C3F19AF00B97104 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				91E96FC81C3F19AF00B97104 /* ChatViewController.swift */,
 				91E96FD81C3F1C2D00B97104 /* Message.swift */,
 				91E96FDA1C3F227500B97104 /* ChatCell.swift */,
+				91013ED81C44A1C20028F04C /* UITableView+Scroll.swift */,
 				91E96FCA1C3F19AF00B97104 /* Main.storyboard */,
 				91E96FCD1C3F19AF00B97104 /* Assets.xcassets */,
 				91E96FCF1C3F19AF00B97104 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91013ED91C44A1C20028F04C /* UITableView+Scroll.swift in Sources */,
 				91E96FD91C3F1C2D00B97104 /* Message.swift in Sources */,
 				91E96FDB1C3F227500B97104 /* ChatCell.swift in Sources */,
 				91E96FC91C3F19AF00B97104 /* ChatViewController.swift in Sources */,
@@ -294,6 +298,7 @@
 				91E96FD71C3F19AF00B97104 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

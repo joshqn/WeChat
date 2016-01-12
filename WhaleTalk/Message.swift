@@ -10,5 +10,6 @@ import Foundation
 
 class Message {
     var text: String?
-    var incoming = false 
+    var incoming = false
+    var timestamp: NSDate?
 }
