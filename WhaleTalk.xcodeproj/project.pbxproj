@@ -8,17 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		91013ED91C44A1C20028F04C /* UITableView+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91013ED81C44A1C20028F04C /* UITableView+Scroll.swift */; };
+		910291071C4600B7003704E6 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 910291051C4600B7003704E6 /* Model.xcdatamodeld */; };
+		9102910A1C46017D003704E6 /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910291081C46017D003704E6 /* Message+CoreDataProperties.swift */; };
+		9102910B1C46017D003704E6 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910291091C46017D003704E6 /* Message.swift */; };
+		91BC8F481C455D5000AF2804 /* CDHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC8F471C455D5000AF2804 /* CDHelper.swift */; };
 		91E96FC71C3F19AF00B97104 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E96FC61C3F19AF00B97104 /* AppDelegate.swift */; };
 		91E96FC91C3F19AF00B97104 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E96FC81C3F19AF00B97104 /* ChatViewController.swift */; };
 		91E96FCC1C3F19AF00B97104 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91E96FCA1C3F19AF00B97104 /* Main.storyboard */; };
 		91E96FCE1C3F19AF00B97104 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91E96FCD1C3F19AF00B97104 /* Assets.xcassets */; };
 		91E96FD11C3F19AF00B97104 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91E96FCF1C3F19AF00B97104 /* LaunchScreen.storyboard */; };
-		91E96FD91C3F1C2D00B97104 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E96FD81C3F1C2D00B97104 /* Message.swift */; };
 		91E96FDB1C3F227500B97104 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E96FDA1C3F227500B97104 /* ChatCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		91013ED81C44A1C20028F04C /* UITableView+Scroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Scroll.swift"; sourceTree = "<group>"; };
+		910291061C4600B7003704E6 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		910291081C46017D003704E6 /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Message+CoreDataProperties.swift"; path = "../Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		910291091C46017D003704E6 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = ../Message.swift; sourceTree = "<group>"; };
+		91BC8F471C455D5000AF2804 /* CDHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDHelper.swift; sourceTree = "<group>"; };
 		91E96FC31C3F19AF00B97104 /* WhaleTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhaleTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91E96FC61C3F19AF00B97104 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91E96FC81C3F19AF00B97104 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -26,7 +33,6 @@
 		91E96FCD1C3F19AF00B97104 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91E96FD01C3F19AF00B97104 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91E96FD21C3F19AF00B97104 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		91E96FD81C3F1C2D00B97104 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		91E96FDA1C3F227500B97104 /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,9 +68,12 @@
 			children = (
 				91E96FC61C3F19AF00B97104 /* AppDelegate.swift */,
 				91E96FC81C3F19AF00B97104 /* ChatViewController.swift */,
-				91E96FD81C3F1C2D00B97104 /* Message.swift */,
 				91E96FDA1C3F227500B97104 /* ChatCell.swift */,
 				91013ED81C44A1C20028F04C /* UITableView+Scroll.swift */,
+				91BC8F471C455D5000AF2804 /* CDHelper.swift */,
+				910291081C46017D003704E6 /* Message+CoreDataProperties.swift */,
+				910291091C46017D003704E6 /* Message.swift */,
+				910291051C4600B7003704E6 /* Model.xcdatamodeld */,
 				91E96FCA1C3F19AF00B97104 /* Main.storyboard */,
 				91E96FCD1C3F19AF00B97104 /* Assets.xcassets */,
 				91E96FCF1C3F19AF00B97104 /* LaunchScreen.storyboard */,
@@ -145,8 +154,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				91013ED91C44A1C20028F04C /* UITableView+Scroll.swift in Sources */,
-				91E96FD91C3F1C2D00B97104 /* Message.swift in Sources */,
+				91BC8F481C455D5000AF2804 /* CDHelper.swift in Sources */,
+				910291071C4600B7003704E6 /* Model.xcdatamodeld in Sources */,
 				91E96FDB1C3F227500B97104 /* ChatCell.swift in Sources */,
+				9102910A1C46017D003704E6 /* Message+CoreDataProperties.swift in Sources */,
+				9102910B1C46017D003704E6 /* Message.swift in Sources */,
 				91E96FC91C3F19AF00B97104 /* ChatViewController.swift in Sources */,
 				91E96FC71C3F19AF00B97104 /* AppDelegate.swift in Sources */,
 			);
@@ -301,6 +313,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		910291051C4600B7003704E6 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				910291061C4600B7003704E6 /* Model.xcdatamodel */,
+			);
+			currentVersion = 910291061C4600B7003704E6 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 91E96FBB1C3F19AF00B97104 /* Project object */;
 }
