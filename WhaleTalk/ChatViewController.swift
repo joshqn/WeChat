@@ -27,10 +27,13 @@ class ChatViewController: UIViewController {
         
         do {
             let request = NSFetchRequest(entityName: "Message")
+            request.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: false)]
+            
             if let result = try context?.executeFetchRequest(request) as? [Message] {
                 for message in result {
                     addMessage(message)
                 }
+                dates = dates.sort({$0.earlierDate($1) == $0})
             }
         }catch let error as NSError {
             print("Error fetching: \(error), \(error.userInfo)")
