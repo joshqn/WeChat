@@ -11,6 +11,8 @@
 		910291071C4600B7003704E6 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 910291051C4600B7003704E6 /* Model.xcdatamodeld */; };
 		9102910A1C46017D003704E6 /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910291081C46017D003704E6 /* Message+CoreDataProperties.swift */; };
 		9102910B1C46017D003704E6 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910291091C46017D003704E6 /* Message.swift */; };
+		916134911C58531800549BF2 /* RemoteStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916134901C58531800549BF2 /* RemoteStorage.swift */; };
+		91B1805F1C5A6DD400EFE443 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B1805E1C5A6DD400EFE443 /* SignUpViewController.swift */; };
 		91BC8F481C455D5000AF2804 /* CDHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC8F471C455D5000AF2804 /* CDHelper.swift */; };
 		91D8F2421C5849DE0038FAA8 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91D8F23C1C5849DE0038FAA8 /* Bolts.framework */; };
 		91D8F2431C5849DE0038FAA8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91D8F23D1C5849DE0038FAA8 /* Parse.framework */; };
@@ -41,6 +43,8 @@
 		910291061C4600B7003704E6 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		910291081C46017D003704E6 /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Message+CoreDataProperties.swift"; path = "../Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		910291091C46017D003704E6 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = ../Message.swift; sourceTree = "<group>"; };
+		916134901C58531800549BF2 /* RemoteStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteStorage.swift; sourceTree = "<group>"; };
+		91B1805E1C5A6DD400EFE443 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		91BC8F471C455D5000AF2804 /* CDHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDHelper.swift; sourceTree = "<group>"; };
 		91D8F23C1C5849DE0038FAA8 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		91D8F23D1C5849DE0038FAA8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -139,11 +143,13 @@
 			children = (
 				91E96FC61C3F19AF00B97104 /* AppDelegate.swift */,
 				91E96FC81C3F19AF00B97104 /* ChatViewController.swift */,
+				91B1805E1C5A6DD400EFE443 /* SignUpViewController.swift */,
 				91E96FDA1C3F227500B97104 /* ChatCell.swift */,
 				91013ED81C44A1C20028F04C /* UITableView+Scroll.swift */,
 				91BC8F471C455D5000AF2804 /* CDHelper.swift */,
 				910291081C46017D003704E6 /* Message+CoreDataProperties.swift */,
 				910291091C46017D003704E6 /* Message.swift */,
+				916134901C58531800549BF2 /* RemoteStorage.swift */,
 				910291051C4600B7003704E6 /* Model.xcdatamodeld */,
 				91E96FCA1C3F19AF00B97104 /* Main.storyboard */,
 				91E96FCD1C3F19AF00B97104 /* Assets.xcassets */,
@@ -229,7 +235,9 @@
 				91BC8F481C455D5000AF2804 /* CDHelper.swift in Sources */,
 				910291071C4600B7003704E6 /* Model.xcdatamodeld in Sources */,
 				91E96FDB1C3F227500B97104 /* ChatCell.swift in Sources */,
+				91B1805F1C5A6DD400EFE443 /* SignUpViewController.swift in Sources */,
 				9102910A1C46017D003704E6 /* Message+CoreDataProperties.swift in Sources */,
+				916134911C58531800549BF2 /* RemoteStorage.swift in Sources */,
 				9102910B1C46017D003704E6 /* Message.swift in Sources */,
 				91E96FC91C3F19AF00B97104 /* ChatViewController.swift in Sources */,
 				91E96FC71C3F19AF00B97104 /* AppDelegate.swift in Sources */,

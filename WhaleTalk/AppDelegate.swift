@@ -8,19 +8,38 @@
 
 import UIKit
 import CoreData
+import Bolts
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    private var remoteStorage: RemoteStorage?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        let vc = window?.rootViewController as! ChatViewController
+        
+        RemoteStorage.setup()
+        let remoteStorage = RemoteStorage()
+        self.remoteStorage = remoteStorage
+        
         let context = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
         context.persistentStoreCoordinator = CDHelper.sharedInstance.coordinator
-        vc.context = context
+        
+        if remoteStorage.hasAuth() {
+            let vc = window!.rootViewController as! ChatViewController
+            vc.context = context
+        } else {
+            let vc = SignUpViewController()
+            vc.context = context
+            vc.remoteStorage = remoteStorage
+            window!.rootViewController = vc 
+        }
+        
+        
         
         return true
     }
