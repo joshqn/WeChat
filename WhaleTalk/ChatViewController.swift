@@ -33,7 +33,6 @@ class ChatViewController: UIViewController {
                 for message in result {
                     addMessage(message)
                 }
-                dates = dates.sort({$0.earlierDate($1) == $0})
             }
         }catch let error as NSError {
             print("Error fetching: \(error), \(error.userInfo)")
@@ -73,7 +72,7 @@ class ChatViewController: UIViewController {
         
         NSLayoutConstraint.activateConstraints(messageAreaConstraints)
         
-        tableView.registerClass(ChatCell.self, forCellReuseIdentifier: cellIdentifier)
+        tableView.registerClass(MessageCell.self, forCellReuseIdentifier: cellIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -166,11 +165,13 @@ class ChatViewController: UIViewController {
         
         var messages = sections[startDay]
         if messages == nil {
-            dates.append(startDay)
-            messages = [Message]()
+          dates.append(startDay)
+          dates = dates.sort({$0.earlierDate($1) == $0})
+          messages = [Message]()
         }
         
         messages!.append(message)
+      messages!.sortInPlace { $0.timestamp!.earlierDate($1.timestamp!) == $0.timestamp! }
         sections[startDay] = messages
     }
 
@@ -193,7 +194,7 @@ extension ChatViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ChatCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MessageCell
         cell.separatorInset = UIEdgeInsetsMake(0, tableView.bounds.size.width, 0, 0)
 
         let messages = getMessages(indexPath.section)
